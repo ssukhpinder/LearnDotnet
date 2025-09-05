@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1>Passwordless Authentication Demo</h1>
+        <p class="lead">This application demonstrates passwordless authentication using magic links.</p>
+        
+        @if (User.Identity!.IsAuthenticated)
+        {
+            <div class="alert alert-success">
+                <h4>Welcome back!</h4>
+                <p>You are successfully authenticated using passwordless authentication.</p>
+                <p><strong>Email:</strong> @User.Identity.Name</p>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                <h4>Not authenticated</h4>
+                <p>Click the Login link to authenticate using a magic link sent to your email.</p>
+                <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Login with Magic Link</a>
+            </div>
+        }
+    </div>
+    <div class="col-md-4">
+        <h3>How it works</h3>
+        <ol>
+            <li>Enter your email address</li>
+            <li>Receive a magic link via email</li>
+            <li>Click the link to authenticate</li>
+            <li>No password required!</li>
+        </ol>
+    </div>
+</div>

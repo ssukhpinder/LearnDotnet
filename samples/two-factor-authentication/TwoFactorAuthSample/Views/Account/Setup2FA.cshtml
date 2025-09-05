@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Setup Two-Factor Authentication";
+}
+
+<h2>Setup Two-Factor Authentication</h2>
+
+<p>Scan the QR code with your authenticator app (Google Authenticator, Microsoft Authenticator, etc.):</p>
+
+<div style="margin: 20px 0;">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=@ViewBag.QrCodeUri" alt="QR Code" />
+</div>
+
+<p>Or manually enter this key: <strong>@ViewBag.ManualEntryKey</strong></p>
+
+<form method="post" action="/Account/Enable2FA">
+    <div class="form-group">
+        <label for="code">Enter verification code from your app:</label>
+        <input type="text" id="code" name="code" required />
+    </div>
+    <button type="submit">Enable 2FA</button>
+</form>

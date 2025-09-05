@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>Two-Factor Authentication Demo</h1>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Welcome! You are successfully logged in with Two-Factor Authentication.</p>
+    <p><strong>User:</strong> @User.Identity.Name</p>
+    
+    @if (User.Identity.AuthenticationType == "Identity.TwoFactorUserId")
+    {
+        <p><em>You completed 2FA verification to access this page.</em></p>
+    }
+}
+else
+{
+    <p>This sample demonstrates Two-Factor Authentication (2FA) using ASP.NET Core Identity.</p>
+    <p>Please <a href="/Account/Register">register</a> or <a href="/Account/Login">login</a> to test 2FA.</p>
+}

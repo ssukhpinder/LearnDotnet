@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Invalid Link";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="alert alert-danger">
+            <h4>Invalid or Expired Link</h4>
+            <p>The magic link you clicked is either invalid or has expired. Please request a new one.</p>
+        </div>
+        
+        <div class="text-center">
+            <a asp-controller="Account" asp-action="Login" class="btn btn-primary">Request New Magic Link</a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>

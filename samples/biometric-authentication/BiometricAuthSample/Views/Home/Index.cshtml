@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h1>Biometric Authentication Sample</h1>
+        <p class="lead">This sample demonstrates biometric authentication using simulated WebAuthn/FIDO2 concepts.</p>
+        
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <div class="alert alert-success">
+                <h4>Welcome!</h4>
+                <p>You are successfully authenticated with biometric authentication.</p>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                <h4>Get Started</h4>
+                <p>Register a new account or login with existing credentials to experience biometric authentication.</p>
+                <a href="/Account/Register" class="btn btn-primary me-2">Register</a>
+                <a href="/Account/Login" class="btn btn-outline-primary">Login</a>
+            </div>
+        }
+    </div>
+    <div class="col-md-4">
+        <h3>Features</h3>
+        <ul class="list-group">
+            <li class="list-group-item">🔐 Biometric Registration</li>
+            <li class="list-group-item">👆 Fingerprint Simulation</li>
+            <li class="list-group-item">🔒 Secure Authentication</li>
+            <li class="list-group-item">⚡ Fast Login</li>
+        </ul>
+    </div>
+</div>

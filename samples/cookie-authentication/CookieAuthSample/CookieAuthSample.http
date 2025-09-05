@@ -1,0 +1,21 @@
+@CookieAuthSample_HostAddress = http://localhost:5296
+
+### Login
+POST {{CookieAuthSample_HostAddress}}/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password"
+}
+
+### Get User Profile (requires login)
+GET {{CookieAuthSample_HostAddress}}/auth/profile
+
+### Access Secure Data (requires login)
+GET {{CookieAuthSample_HostAddress}}/secure/data
+
+### Logout
+POST {{CookieAuthSample_HostAddress}}/auth/logout
+
+###

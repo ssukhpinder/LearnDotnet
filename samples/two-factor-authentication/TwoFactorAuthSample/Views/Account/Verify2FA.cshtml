@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Two-Factor Authentication";
+}
+
+<h2>Two-Factor Authentication</h2>
+
+<p>Enter the verification code from your authenticator app:</p>
+
+<form method="post">
+    <div class="form-group">
+        <label for="code">Verification Code:</label>
+        <input type="text" id="code" name="code" required />
+    </div>
+    <button type="submit">Verify</button>
+</form>
+
+@if (ViewData.ModelState.ErrorCount > 0)
+{
+    <div class="error">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}

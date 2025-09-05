@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Setup Biometric Authentication";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>Setup Biometric Authentication</h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <h5>🔐 Secure Your Account</h5>
+                    <p>Enable biometric authentication for faster and more secure login.</p>
+                </div>
+                
+                <form method="post" id="biometricForm">
+                    <input type="hidden" id="publicKey" name="publicKey" />
+                    
+                    <div class="text-center mb-4">
+                        <div class="biometric-icon mb-3">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.81 4.47c-.08 0-.16-.02-.23-.06C15.66 3.42 14 3 12.01 3c-1.98 0-3.86.47-5.57 1.41-.24.13-.54.04-.68-.2-.13-.24-.04-.55.2-.68C7.82 2.52 9.86 2 12.01 2c2.13 0 3.99.47 6.03 1.52.25.13.34.43.21.67-.09.18-.26.28-.44.28zM3.5 9.72c-.1 0-.2-.03-.29-.09-.23-.16-.28-.47-.12-.7.99-1.4 2.25-2.5 3.75-3.27C9.98 4.04 14 4.03 17.15 5.65c1.5.77 2.76 1.86 3.75 3.25.16.22.11.54-.12.7-.23.16-.54.11-.7-.12-.9-1.26-2.04-2.25-3.39-2.94-2.87-1.47-6.54-1.47-9.4.01-1.36.7-2.5 1.7-3.4 2.96-.08.14-.23.21-.39.21z"/>
+                            </svg>
+                        </div>
+                        <h4>Fingerprint Authentication</h4>
+                        <p class="text-muted">This is a simulation of biometric authentication</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary btn-lg" onclick="simulateBiometric()">
+                            <i class="bi bi-fingerprint"></i> Enable Biometric Authentication
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-3 text-center">
+                    <a href="/" class="btn btn-outline-secondary">Skip for now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+function simulateBiometric() {
+    // Simulate biometric enrollment
+    const publicKey = btoa(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+    document.getElementById('publicKey').value = publicKey;
+    
+    // Show loading state
+    const btn = event.target;
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"></span> Enrolling...';
+    btn.disabled = true;
+    
+    // Simulate enrollment delay
+    setTimeout(() => {
+        document.getElementById('biometricForm').submit();
+    }, 2000);
+}
+</script>
+}

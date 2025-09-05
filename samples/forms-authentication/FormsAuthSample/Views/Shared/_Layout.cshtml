@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forms Authentication Sample</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .nav { margin-bottom: 20px; }
+        .nav a { margin-right: 15px; text-decoration: none; color: #007bff; }
+        .nav a:hover { text-decoration: underline; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; }
+        .form-group input { padding: 8px; width: 200px; }
+        .btn { padding: 10px 15px; background: #007bff; color: white; border: none; cursor: pointer; }
+        .btn:hover { background: #0056b3; }
+        .error { color: red; margin-top: 10px; }
+        .user-info { background: #f8f9fa; padding: 10px; margin-bottom: 20px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/Home/Secure">Secure Page</a>
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <span>Welcome, @User.Identity.Name!</span>
+            <a href="/Account/Logout">Logout</a>
+        }
+        else
+        {
+            <a href="/Account/Login">Login</a>
+        }
+    </div>
+    
+    @RenderBody()
+</body>
+</html>

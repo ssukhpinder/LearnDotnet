@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "FormsAuthSample": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:61246;http://localhost:61247"
+    }
+  }
+}

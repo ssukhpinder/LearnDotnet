@@ -1,0 +1,11 @@
+<h2>Secure Page</h2>
+
+<div class="user-info">
+    <h3>Protected Content</h3>
+    <p>Congratulations! You have successfully accessed a protected page.</p>
+    <p><strong>User:</strong> @User.Identity?.Name</p>
+    <p><strong>Roles:</strong> @string.Join(", ", User.Claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).Select(c => c.Value))</p>
+    <p><strong>Access Time:</strong> @DateTime.Now</p>
+</div>
+
+<p>This page is only accessible to authenticated users.</p>

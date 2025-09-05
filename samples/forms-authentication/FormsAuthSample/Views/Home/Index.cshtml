@@ -1,0 +1,18 @@
+<h1>Forms Authentication Sample</h1>
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="user-info">
+        <h3>User Information</h3>
+        <p><strong>Name:</strong> @User.Identity.Name</p>
+        <p><strong>Authentication Type:</strong> @User.Identity.AuthenticationType</p>
+        <p><strong>Is Authenticated:</strong> @User.Identity.IsAuthenticated</p>
+    </div>
+}
+else
+{
+    <p>You are not logged in. <a href="/Account/Login">Login here</a> to see user information.</p>
+}
+
+<p>This is a public page accessible to everyone.</p>
+<p>Try accessing the <a href="/Home/Secure">Secure Page</a> to see authentication in action.</p>
